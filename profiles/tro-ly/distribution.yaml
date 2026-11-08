@@ -1,5 +1,5 @@
 name: tro-ly
-version: 0.1.0
+version: 0.1.1
 description: "Client's personal assistant on chat; hands marketing work to mkt-lead via Kanban and relays questions and approvals."
 hermes_requires: ">=0.23.0"
 author: "Vibe AI Labs"

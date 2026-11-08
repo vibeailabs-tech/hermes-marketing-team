@@ -1,5 +1,5 @@
 name: mkt-creative
-version: 0.1.0
+version: 0.1.1
 description: "Video and creative: long-form video scripts, design briefs, pitch decks and UGC scripts."
 hermes_requires: ">=0.23.0"
 author: "Vibe AI Labs"

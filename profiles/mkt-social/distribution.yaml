@@ -1,5 +1,5 @@
 name: mkt-social
-version: 0.1.0
+version: 0.1.1
 description: "Social and distribution: platform posts, social calendars, hashtags, community replies, repurposing, PR."
 hermes_requires: ">=0.23.0"
 author: "Vibe AI Labs"

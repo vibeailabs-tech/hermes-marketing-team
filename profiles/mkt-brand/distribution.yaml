@@ -1,5 +1,5 @@
 name: mkt-brand
-version: 0.1.0
+version: 0.1.1
 description: "Brand strategist: builds and updates brand.md (voice, ICP, positioning, USP) from interviews and results."
 hermes_requires: ">=0.23.0"
 author: "Vibe AI Labs"

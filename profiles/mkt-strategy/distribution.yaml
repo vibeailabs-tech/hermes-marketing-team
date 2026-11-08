@@ -1,5 +1,5 @@
 name: mkt-strategy
-version: 0.1.0
+version: 0.1.1
 description: "Strategist and CRO: 90-day plans, campaign briefs, content calendars, offers, landing pages and CTAs."
 hermes_requires: ">=0.23.0"
 author: "Vibe AI Labs"

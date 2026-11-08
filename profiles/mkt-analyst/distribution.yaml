@@ -1,5 +1,5 @@
 name: mkt-analyst
-version: 0.1.0
+version: 0.1.1
 description: "Performance analyst: weekly and campaign reports, ROI, data visualization, monthly reviews."
 hermes_requires: ">=0.23.0"
 author: "Vibe AI Labs"

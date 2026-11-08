@@ -1,5 +1,5 @@
 name: mkt-content
-version: 0.1.0
+version: 0.1.1
 description: "Content and SEO writer: blog posts, website copy, case studies, keyword maps, on-page and technical SEO."
 hermes_requires: ">=0.23.0"
 author: "Vibe AI Labs"

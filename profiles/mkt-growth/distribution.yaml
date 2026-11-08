@@ -1,5 +1,5 @@
 name: mkt-growth
-version: 0.1.0
+version: 0.1.1
 description: "Email, cold outreach and sales enablement: sequences, newsletters, outreach, sales pages, proposals."
 hermes_requires: ">=0.23.0"
 author: "Vibe AI Labs"
