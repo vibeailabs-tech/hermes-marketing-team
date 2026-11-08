@@ -2,7 +2,7 @@
 # Shared helpers for the hermes-marketing-team scripts. Source this file; don't run it.
 # shellcheck disable=SC2034  # the variables below are used by the scripts that source this file
 
-REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd -P)"
 WORKSPACE="${MARKETING_WORKSPACE:-$HOME/marketing-workspace}"
 # Hermes keeps named profiles under ~/.hermes/profiles regardless of HERMES_HOME.
 HERMES_ROOT="$HOME/.hermes"
@@ -19,10 +19,22 @@ require_hermes() {
 
 profile_dir() { printf '%s/profiles/%s' "$HERMES_ROOT" "$1"; }
 
-# manifest_field FILE KEY -> value of a top-level `KEY: value` line (quotes stripped)
+# manifest_field FILE KEY -> value of a top-level `KEY: value` (quotes stripped). Hermes folds long
+# values onto the next indented line when it rewrites an installed manifest, so follow that too.
 manifest_field() {
-  sed -n "s/^$2:[[:space:]]*//p" "$1" | head -n 1 | sed 's/^"\(.*\)"$/\1/'
+  awk -v key="$2" '
+    found && /^[[:space:]]+[^[:space:]]/ { sub(/^[[:space:]]+/, ""); print; exit }
+    found { exit }
+    index($0, key ":") == 1 {
+      value = substr($0, length(key) + 2); sub(/^[[:space:]]+/, "", value)
+      if (value != "") { print value; exit }
+      found = 1
+    }
+  ' "$1" | sed "s/^[\"']\(.*\)[\"']\$/\1/"
 }
+
+# real_path DIR -> physical path (symlinks resolved), or DIR unchanged when it does not exist
+real_path() { (cd "$1" 2>/dev/null && pwd -P) || printf '%s' "$1"; }
 
 # env_value FILE NAME -> value of NAME=... in a dotenv file (empty when absent)
 env_value() {

@@ -5,6 +5,13 @@ profile ships with the same version (see `VERSION`).
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-11-08
+
+### Fixed
+- `install-profiles.sh` / `healthcheck.sh` read the installed manifest's `source` even when Hermes folds a long
+  path onto the next line, and compare physical paths, so re-runs from the same checkout always update and a
+  different checkout is refused with re-link instructions.
+
 ## [0.1.0] - 2026-11-08
 
 ### Added

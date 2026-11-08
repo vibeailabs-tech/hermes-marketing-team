@@ -30,7 +30,7 @@ hermes --version              # cần >= 0.23.0
 ```bash
 git clone https://github.com/vibeailabs-tech/hermes-marketing-team.git ~/hermes-marketing-team
 cd ~/hermes-marketing-team
-git checkout v0.1.0           # ghim bản phát hành
+git checkout "$(git describe --tags --abbrev=0)"   # ghim bản phát hành mới nhất
 scripts/bootstrap.sh
 ```
 

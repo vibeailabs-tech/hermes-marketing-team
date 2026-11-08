@@ -28,7 +28,7 @@ for p in $selected; do
   installed="$(profile_dir "$p")"
   if [ -f "$installed/distribution.yaml" ]; then
     recorded="$(manifest_field "$installed/distribution.yaml" source)"
-    if [ -n "$recorded" ] && [ "$recorded" != "$src" ]; then
+    if [ -n "$recorded" ] && [ "$(real_path "$recorded")" != "$src" ]; then
       die "$p was installed from $recorded, not $src. Re-link it with:
   hermes profile install \"$src\" --name $p --force -y   (keeps memories and .env, resets config.yaml)"
     fi
