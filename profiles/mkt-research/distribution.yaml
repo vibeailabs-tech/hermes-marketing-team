@@ -1,0 +1,22 @@
+name: mkt-research
+version: 0.1.0
+description: "Research analyst: live Vietnam market, competitor, keyword and trend research."
+hermes_requires: ">=0.23.0"
+author: "Vibe AI Labs"
+license: "Proprietary"
+
+env_requires:
+  - name: OPENROUTER_API_KEY
+    description: "OpenRouter key for the model (and Perplexity research)"
+    required: true
+  - name: FIRECRAWL_API_KEY
+    description: "Firecrawl key for competitor scraping (optional; enables the firecrawl MCP server)"
+    required: false
+  - name: SERPAPI_KEY
+    description: "SerpAPI key for live Google SERP data (optional; falls back to web_search)"
+    required: false
+
+distribution_owned:
+  - SOUL.md
+  - config.yaml
+  - skills/research

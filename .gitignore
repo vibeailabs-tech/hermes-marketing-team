@@ -1,0 +1,19 @@
+# Local material that is not part of the product
+general-service/
+hermes-learning-roadmap.md
+
+# Secrets and installer output
+.env
+.env.*
+**/.env
+**/.env.EXAMPLE
+
+# Client data never lives in this repo (bootstrap creates ~/marketing-workspace)
+/workspace/
+/marketing-workspace/
+
+# OS / tooling
+.DS_Store
+__pycache__/
+*.pyc
+.venv/

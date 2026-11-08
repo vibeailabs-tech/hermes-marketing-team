@@ -1,0 +1,26 @@
+# Shipped by the hermes-marketing-team distribution (mkt-research).
+# `hermes profile update` keeps the installed copy; apply this file with --force-config.
+model:
+  default: anthropic/claude-sonnet-5.5
+  provider: auto
+  base_url: https://openrouter.ai/api/v1
+
+terminal:
+  backend: local
+  cwd: ~/marketing-workspace
+
+# MCP servers for competitor-analysis. Both ship disabled; enable after installing Node.js
+# (and adding FIRECRAWL_API_KEY to this profile's .env for firecrawl):
+#   mkt-research config set mcp_servers.firecrawl.enabled true
+#   mkt-research config set mcp_servers.playwright.enabled true
+mcp_servers:
+  firecrawl:
+    command: npx
+    args: ["-y", "firecrawl-mcp"]
+    env:
+      FIRECRAWL_API_KEY: ${FIRECRAWL_API_KEY}
+    enabled: false
+  playwright:
+    command: npx
+    args: ["@playwright/mcp@latest"]
+    enabled: false

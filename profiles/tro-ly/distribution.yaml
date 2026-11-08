@@ -1,0 +1,23 @@
+name: tro-ly
+version: 0.1.0
+description: "Client's personal assistant on chat; hands marketing work to mkt-lead via Kanban and relays questions and approvals."
+hermes_requires: ">=0.23.0"
+author: "Vibe AI Labs"
+license: "Proprietary"
+
+env_requires:
+  - name: OPENROUTER_API_KEY
+    description: "OpenRouter key for the model (and Perplexity research)"
+    required: true
+  - name: TELEGRAM_BOT_TOKEN
+    description: "Telegram bot token from @BotFather (set with: tro-ly gateway setup)"
+    required: false
+  - name: TELEGRAM_ALLOWED_USERS
+    description: "Comma-separated Telegram user IDs allowed to talk to the bot"
+    required: false
+
+distribution_owned:
+  - SOUL.md
+  - config.yaml
+  - skills/assistant
+  - cron/jobs.json

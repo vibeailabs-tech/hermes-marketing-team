@@ -1,0 +1,16 @@
+name: mkt-ads
+version: 0.1.0
+description: "Paid ads: ad copy, creative concepts, audience targeting, campaign structure, ad tests, Google PMax."
+hermes_requires: ">=0.23.0"
+author: "Vibe AI Labs"
+license: "Proprietary"
+
+env_requires:
+  - name: OPENROUTER_API_KEY
+    description: "OpenRouter key for the model (and Perplexity research)"
+    required: true
+
+distribution_owned:
+  - SOUL.md
+  - config.yaml
+  - skills/ads

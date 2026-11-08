@@ -1,0 +1,17 @@
+name: mkt-strategy
+version: 0.1.0
+description: "Strategist and CRO: 90-day plans, campaign briefs, content calendars, offers, landing pages and CTAs."
+hermes_requires: ">=0.23.0"
+author: "Vibe AI Labs"
+license: "Proprietary"
+
+env_requires:
+  - name: OPENROUTER_API_KEY
+    description: "OpenRouter key for the model (and Perplexity research)"
+    required: true
+
+distribution_owned:
+  - SOUL.md
+  - config.yaml
+  - skills/strategy
+  - skills/cro

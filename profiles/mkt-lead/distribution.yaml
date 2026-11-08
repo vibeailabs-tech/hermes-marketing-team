@@ -1,0 +1,16 @@
+name: mkt-lead
+version: 0.1.0
+description: "Marketing lead and orchestrator: turns requests into sequenced Kanban cards for the specialists; never writes assets."
+hermes_requires: ">=0.23.0"
+author: "Vibe AI Labs"
+license: "Proprietary"
+
+env_requires:
+  - name: OPENROUTER_API_KEY
+    description: "OpenRouter key for the model (and Perplexity research)"
+    required: true
+
+distribution_owned:
+  - SOUL.md
+  - config.yaml
+  - skills/orchestration

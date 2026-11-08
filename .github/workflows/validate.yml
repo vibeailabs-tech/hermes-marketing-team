@@ -1,0 +1,25 @@
+name: validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Install PyYAML
+        run: python3 -m pip install --quiet "pyyaml>=6,<7"
+      - name: Validate profiles and skills
+        run: python3 scripts/validate.py
+      - name: Check shell scripts
+        run: |
+          for f in scripts/*.sh; do bash -n "$f"; done
+          shellcheck -x -S warning scripts/*.sh
+      - name: Check helper scripts compile
+        run: python3 -m py_compile scripts/validate.py profiles/*/skills/*/*/scripts/*.py

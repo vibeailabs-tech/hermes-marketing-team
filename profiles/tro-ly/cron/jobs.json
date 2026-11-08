@@ -1,0 +1,52 @@
+{
+  "jobs": [
+    {
+      "id": "mkt-weekly-review",
+      "name": "weekly-marketing-review",
+      "prompt": "Weekly marketing cycle. List the client folders under ~/marketing-workspace/clients with search_files (skip names that start with _). Get the absolute home directory with terminal (echo \"$HOME\"). For each client slug create one Kanban card with kanban_create: title \"Weekly report <slug> <YYYY-Www>\", assignee \"mkt-analyst\", skills [\"weekly-report\"], tenant \"<slug>\", workspace_kind \"dir\", workspace_path \"<home>/marketing-workspace/clients/<slug>\", idempotency_key \"weekly-<slug>-<YYYY-Www>\", body \"Compile last week's report from the metrics in performance/ and the card comments, and compare against the campaign brief in strategy/. If metrics are missing, block and list exactly which numbers you need.\" Then reply to the client in Vietnamese: one line per client saying the weekly report is being prepared, plus a reminder to send last week's numbers (ads, website, email, sales) if they have not yet.",
+      "skills": [
+        "marketing-handoff"
+      ],
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 8 * * 1",
+        "display": "0 8 * * 1"
+      },
+      "schedule_display": "0 8 * * 1",
+      "deliver": "telegram",
+      "timezone": "Asia/Ho_Chi_Minh"
+    },
+    {
+      "id": "mkt-monthly-cycle",
+      "name": "monthly-strategy-cycle",
+      "prompt": "Monthly strategy cycle. List the client folders under ~/marketing-workspace/clients with search_files (skip names that start with _). Get the absolute home directory with terminal (echo \"$HOME\"). For each client slug create two Kanban cards with kanban_create, both with tenant \"<slug>\", workspace_kind \"dir\" and workspace_path \"<home>/marketing-workspace/clients/<slug>\". Card 1: title \"Monthly review <slug> <YYYY-MM>\", assignee \"mkt-analyst\", skills [\"monthly-performance-review\"], idempotency_key \"monthly-review-<slug>-<YYYY-MM>\", body \"Synthesize last month's results from performance/ and flag what upstream should change. Block and ask for missing numbers instead of estimating.\" Card 2: title \"Foundation review <slug> <YYYY-MM>\", assignee \"mkt-brand\", skills [\"foundation-review\"], parents [card 1 id], idempotency_key \"foundation-review-<slug>-<YYYY-MM>\", body \"After the monthly review: propose evidence-backed brand.md updates and next month's campaign brief, then request the client's review.\" Then reply to the client in Vietnamese with one line per client describing the monthly review that has started.",
+      "skills": [
+        "marketing-handoff"
+      ],
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 9 1 * *",
+        "display": "0 9 1 * *"
+      },
+      "schedule_display": "0 9 1 * *",
+      "deliver": "telegram",
+      "timezone": "Asia/Ho_Chi_Minh"
+    },
+    {
+      "id": "mkt-daily-digest",
+      "name": "daily-team-digest",
+      "prompt": "Daily team digest. Use the team-status skill across all clients: list cards that are blocked (questions for the client) and cards waiting in review (assets to approve). Reply to the client in Vietnamese, under 15 lines, ending with the single most useful next action. If nothing is blocked or in review, reply with one short line saying the team is on track.",
+      "skills": [
+        "team-status"
+      ],
+      "schedule": {
+        "kind": "cron",
+        "expr": "30 17 * * 1-5",
+        "display": "30 17 * * 1-5"
+      },
+      "schedule_display": "30 17 * * 1-5",
+      "deliver": "telegram",
+      "timezone": "Asia/Ho_Chi_Minh"
+    }
+  ]
+}

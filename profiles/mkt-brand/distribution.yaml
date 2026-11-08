@@ -1,0 +1,17 @@
+name: mkt-brand
+version: 0.1.0
+description: "Brand strategist: builds and updates brand.md (voice, ICP, positioning, USP) from interviews and results."
+hermes_requires: ">=0.23.0"
+author: "Vibe AI Labs"
+license: "Proprietary"
+
+env_requires:
+  - name: OPENROUTER_API_KEY
+    description: "OpenRouter key for the model (and Perplexity research)"
+    required: true
+
+distribution_owned:
+  - SOUL.md
+  - config.yaml
+  - skills/brand-foundation
+  - skills/feedback
